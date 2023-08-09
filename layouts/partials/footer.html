@@ -23,7 +23,7 @@
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
                         <a href="{{ .Permalink }}">
-                          {{ if isset .Params "banner" }}
+                          {{ if and ( isset .Params "banner" ) ( .Params.banner ) }}
                             <img src="{{ .Params.banner | relURL }}" class="img-responsive" alt="{{ .Title }}">
                           {{ else }}
                             <img src="{{ "img/placeholder.png" | relURL }}" class="img-responsive" alt="{{ .Title }}">
@@ -46,7 +46,7 @@
         {{ if isset .Site.Params "address" }}
         <div class="col-md-4 col-sm-6">
 
-          <h4>{{ i18n "contactTitle" }}</h4>
+          <h4>{{ i18n "contactTitle" | markdownify }}</h4>
 
             {{ .Site.Params.address | safeHTML }}
 
