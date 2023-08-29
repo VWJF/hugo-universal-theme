@@ -16,10 +16,7 @@
         {{ partial "breadcrumbs.html" . }}
 
         <div id="content">
-            {{ $partialPath := "" }}  
-            {{ if isset .Params "id" }}
-              {{ $partialPath := printf .Params.id . }}
-            {{ end }}  
+            {{ $partialPath := printf "%s.html" .Params.id }}
             
             {{ if templates.Exists ( printf "partials/%s" $partialPath ) }}
 
