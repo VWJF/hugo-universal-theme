@@ -24,7 +24,13 @@
                     <!-- *** LEFT COLUMN *** -->
 
                     <div class="col-md-9" id="blog-post">
-
+                      
+                      {{ if .Params.banner }}
+                        <div class="{{ if .Params.banner_align }} {{ .Params.banner_align | safeHTML }} {{ else }} {{ end }}"><img src="{{ .Params.banner | relURL }}" class="img-responsive" alt=""></div>
+                      {{ else }}
+                        <img src="{{ "img/placeholder.png" | relURL }}" class="img-responsive" alt="">
+                      {{ end }}
+                      
                         {{ if or .Params.author .Params.date }}
                           <p class="text-muted text-uppercase mb-small text-right">
                             {{ if isset .Params "authors" }}
