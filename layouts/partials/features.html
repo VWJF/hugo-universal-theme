@@ -26,9 +26,15 @@
                             {{ with $element.url }}
                             <a href="{{ $element.url | relURL }}">
                             {{ end }}
+                                {{ if $element.thumbnail }}
+                                    <figure>
+                                        <img src="{{ $element.thumbnail}}" class="icon"> 
+                                    </figure>
+                                {{ else if $element.icon }}
                                 <div class="icon">
                                     <i class="{{ $element.icon }}"></i>
                                 </div>
+                                {{ end }}
                             {{ with $element.url }}
                             </a>
                             {{ end }}
