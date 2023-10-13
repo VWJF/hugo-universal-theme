@@ -26,9 +26,9 @@
                     <div class="col-md-9" id="blog-post">
                       
                       {{ if .Params.banner }}
-                        <div class="{{ if .Params.banner_align }} {{ .Params.banner_align | safeHTML }} {{ else }} {{ end }}"><img src="{{ .Params.banner | relURL }}" class="img-responsive" alt=""></div>
+                        <div class="{{ if .Params.banner_align }} {{ .Params.banner_align | safeHTML }} {{ else }} {{ end }}"><img src="{{ .Params.banner | relURL }}" class="img-responsive" alt="Read more about {{ .Title | safeHTML }}"></div>
                       {{ else }}
-                        <img src="{{ "img/placeholder.png" | relURL }}" class="img-responsive" alt="">
+                        <img src="{{ "img/placeholder.png" | relURL }}" class="img-responsive" alt="Read more about {{ .Title | safeHTML }}">
                       {{ end }}
                       
                         {{ if or .Params.author .Params.date }}
