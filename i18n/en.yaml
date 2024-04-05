@@ -28,6 +28,9 @@
 - id: contactMessage
   translation: "Your Message"
 
+- id: contactSubject
+  translation: "Subject"
+
 - id: contactSend
   translation: "Send Message"
 
