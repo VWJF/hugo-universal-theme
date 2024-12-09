@@ -84,6 +84,17 @@ _________________________________________________________ -->
               {{ i18n "portedBy" | markdownify }} <a href="https://github.com/devcows/hugo-universal-theme">DevCows</a>.
             </p>
         </div>
+        {{ with .GitInfo }}
+        {{ $author_email := .AuthorEmail }}
+        {{ if not (strings.Contains $author_email "noreply") }}
+            {{ $author_email = "" }}
+        {{ end }}
+        <div class="col-md-12">
+            <p class="pull-left">GitInfo</p>
+            <p class="pull-right">{ commit={{ .AbbreviatedHash }} | by user={{ $author_email }} | dated={{ .CommitDate }} }</p>
+        </div>
+        {{ end }}
+
     </div>
 </div>
 <!-- /#copyright -->
