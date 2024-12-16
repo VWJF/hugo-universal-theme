@@ -28,7 +28,7 @@
                             {{ end }}
                                 {{ if $element.thumbnail }}
                                     <figure>
-                                        <img src="{{ $element.thumbnail }}" alt="feature icon" class="icon"> 
+                                        <img src="{{ $element.thumbnail }}" alt="feature icon" class="card-img img-responsive center-block" style="max-width: 90%;"> 
                                     </figure>
                                 {{ else if $element.icon }}
                                 <div class="icon">
@@ -38,8 +38,10 @@
                             {{ with $element.url }}
                             </a>
                             {{ end }}
-                            <h3>{{ $element.name | markdownify }}</h3>
-                            <p>{{ $element.description | markdownify }}</p>
+                            <div class="">
+                                <h3 class="card-title">{{ $element.name | markdownify }}</h3>
+                                <p class="card-text">{{ $element.description | markdownify }}</p>
+                            </div>
                         </div>
                     </div>
                 {{ end }}
