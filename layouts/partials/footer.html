@@ -84,14 +84,12 @@ _________________________________________________________ -->
               {{ i18n "portedBy" | markdownify }} <a href="https://github.com/devcows/hugo-universal-theme">DevCows</a>.
             </p>
         </div>
-        {{ with .GitInfo }}
-        {{ $author_email := .AuthorEmail }}
-        {{ if not (strings.Contains $author_email "noreply") }}
-            {{ $author_email = "" }}
-        {{ end }}
+        {{ with os.Getenv "HUGO_CI_SHORT_SHA" }}
+        {{ $gitHash := . }}
+        {{ if gt (len $gitHash) 7 }}{{ $gitHash = strings.Substr $gitHash 0 7 }}{{ end }}
         <div class="col-md-12">
             <p class="pull-left">GitInfo</p>
-            <p class="pull-right">{ commit={{ .AbbreviatedHash }} | by user={{ $author_email }} | dated={{ .CommitDate }} }</p>
+            <p class="pull-right">{ commit={{ $gitHash }} | by user={{ os.Getenv "HUGO_CI_AUTHOR" }} | dated={{ now.Format "2006-01-02 15:04:05 -0700" }} }</p>
         </div>
         {{ end }}
 
